@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-controller
+  namespace: openfaas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-controller
+  template:
+    metadata:
+      labels:
+        app: grpc-controller
+      annotations:
+        prometheus.io.scrape: 'true'
+    spec:
+      serviceAccountName: grpc-controller
+      containers:
+      - name: operator
+        image: roleypoly/openfaas-grpc-controller:latest
+        imagePullPolicy: Always
+        env:
+        - name: TARGET_NS
+          value: openfaas
+        - name: FUNCTION_NS
+          value: openfaas-fn
+        resources:
+          limits:
+            memory: 128Mi
+          requests:
+            memory: 25Mi
