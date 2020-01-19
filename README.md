@@ -60,7 +60,7 @@ and it should just work given this controller is deployed.
 
 ### wait a minute
 
-[**golang-grpc**](https://github.com/roleypoly/faas-templates) is the other piece of the puzzle. it provides the function wrapper pattern to support this working.
+[**golang-grpc**](https://github.com/roleypoly/openfaas-templates) is the other piece of the puzzle. it provides the function wrapper pattern to support this working.
 
 see [example repo](https://github.com/roleypoly/faas-rpc-example) for an end-to-end example that you can run on your friendliest kubernetes cluster.
 
