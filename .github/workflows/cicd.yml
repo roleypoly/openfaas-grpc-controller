@@ -52,7 +52,7 @@ jobs:
         if: github.event_name == 'push'
         with:
           tag: ${{ github.repository }}:${{ github.sha }}
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64,linux/arm
           qemu: 'false'
           push: 'true'
 
